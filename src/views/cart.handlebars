@@ -1,0 +1,57 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-start mb-3">
+    <a href="/" class="btn btn-secondary">
+      <i class="fas fa-arrow-left"></i> Volver a productos
+    </a>
+  </div>
+  <h1 class="text-center mb-4">Carrito de compras</h1>
+  {{#if cart.products.length}}
+  <div class="table-responsive">
+    <table class="table table-bordered align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Imagen</th>
+          <th>Producto</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>Categoría</th>
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each cart.products}}
+        <tr>
+          <td style="width: 120px;">
+            {{#if product.thumbnails.[0]}}
+              <img src="{{product.thumbnails.[0]}}" alt="{{product.title}}" style="width: 100px; height: 70px; object-fit: cover;">
+            {{else if product.thumbnail}}
+              <img src="{{product.thumbnail}}" alt="{{product.title}}" style="width: 100px; height: 70px; object-fit: cover;">
+            {{else}}
+              <img src="https://via.placeholder.com/100x70?text=No+Image" alt="No image available">
+            {{/if}}
+          </td>
+          <td><strong>{{product.title}}</strong></td>
+          <td>{{product.description}}</td>
+          <td>${{product.price}}</td>
+          <td>{{product.category}}</td>
+          <td>{{quantity}}</td>
+          <td>${{multiply product.price quantity}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  <div class="text-end mt-3">
+    <h4>Total: ${{cartTotal cart.products}}</h4>
+  </div>
+  {{else}}
+  <div class="alert alert-info text-center">
+    El carrito está vacío.
+  </div>
+  {{/if}}
+</div>
+
+<style>
+  .table td, .table th { vertical-align: middle; }
+</style> 

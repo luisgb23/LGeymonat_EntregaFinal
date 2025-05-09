@@ -1,0 +1,27 @@
+{
+  "name": "segundaentrega",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "seed": "node src/config/seeder.js",
+    "seed:cart": "node src/config/cartSeeder.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.1",
+    "mongoose": "^8.14.1",
+    "nodemon": "^3.1.10",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

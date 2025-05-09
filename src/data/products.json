@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "title": "Mouse Gamer",
+    "description": "Mouse ergonómico con luces LED",
+    "code": "MG100",
+    "price": 1500,
+    "status": true,
+    "stock": 30,
+    "category": "periféricos",
+    "thumbnails": [
+      "https://www.pccompu.com.uy/imgs/productos/productos34_44447.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Teclado Mecánico",
+    "description": "Teclado con switches rojos y retroiluminación RGB",
+    "code": "TK200",
+    "price": 3500,
+    "status": true,
+    "stock": 15,
+    "category": "periféricos",
+    "thumbnails": [
+      "https://img.kwcdn.com/product/1e78ea4c92/77d5379d-6ca3-4c41-942a-20319ec5c8e3_800x800.jpeg?imageView2/2/w/800/q/70/format/webp"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Monitor AOC",
+    "description": "Monitor aoc",
+    "code": "1133",
+    "price": 6500,
+    "stock": 3,
+    "status": true,
+    "category": "Monitores",
+    "thumbnails": [
+      "https://www.pccompu.com.uy/imgs/productos/productos34_56163.jpg"
+    ]
+  }
+]
