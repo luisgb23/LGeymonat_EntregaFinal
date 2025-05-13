@@ -17,7 +17,7 @@ const __dirname = path.resolve();
 
 const productManager = new ProductManager();
 
-// Connect to MongoDB
+// Connectar MongoDB
 connectDB();
 
 // Middleware
@@ -25,7 +25,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '/src/public')));
 
-// Setup Handlebars
 app.engine('handlebars', setupHandlebars());
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, '/src/views'));
@@ -35,7 +34,7 @@ app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
 app.use('/', viewsRouter(productManager));
 
-console.log('Vistas buscadas en:', path.join(__dirname, '/src/views'));
+//console.log('Vistas buscadas en:', path.join(__dirname, '/src/views'));
 
 io.on('connection', async socket => {
   console.log('Cliente conectado por socket');

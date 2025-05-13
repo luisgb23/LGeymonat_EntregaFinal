@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Obtener un carrito por ID con populate
+// Obtener un carrito por id
 router.get('/:cid', async (req, res) => {
   try {
     if (!mongoose.Types.ObjectId.isValid(req.params.cid)) {
@@ -29,7 +29,7 @@ router.get('/:cid', async (req, res) => {
   }
 });
 
-// Agregar producto al carrito (o aumentar cantidad)
+// Agregar producto al carrito 
 router.post('/:cid/product/:pid', async (req, res) => {
   try {
     const { cid, pid } = req.params;
@@ -53,7 +53,7 @@ router.post('/:cid/product/:pid', async (req, res) => {
   }
 });
 
-// DELETE api/carts/:cid/products/:pid - Eliminar producto del carrito
+// Eliminar producto del carrito
 router.delete('/:cid/products/:pid', async (req, res) => {
   try {
     const { cid, pid } = req.params;
@@ -70,7 +70,7 @@ router.delete('/:cid/products/:pid', async (req, res) => {
   }
 });
 
-// PUT api/carts/:cid - Actualizar todos los productos del carrito
+// Actualizar los productos del carrito
 router.put('/:cid', async (req, res) => {
   try {
     const { cid } = req.params;
@@ -78,7 +78,7 @@ router.put('/:cid', async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(cid)) {
       return res.status(400).json({ status: 'error', message: 'ID de carrito inválido' });
     }
-    // Validar que todos los productos existan
+
     for (const item of products) {
       if (!mongoose.Types.ObjectId.isValid(item.product)) {
         return res.status(400).json({ status: 'error', message: `ID de producto inválido: ${item.product}` });
@@ -96,7 +96,7 @@ router.put('/:cid', async (req, res) => {
   }
 });
 
-// PUT api/carts/:cid/products/:pid - Actualizar SOLO la cantidad de un producto
+// Actualizar la cantidad de un producto
 router.put('/:cid/products/:pid', async (req, res) => {
   try {
     const { cid, pid } = req.params;
@@ -119,7 +119,7 @@ router.put('/:cid/products/:pid', async (req, res) => {
   }
 });
 
-// DELETE api/carts/:cid - Eliminar todos los productos del carrito
+// Eliminar todos los productos del carrito
 router.delete('/:cid', async (req, res) => {
   try {
     const { cid } = req.params;

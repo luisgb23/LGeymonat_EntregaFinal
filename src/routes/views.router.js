@@ -9,10 +9,9 @@ const viewsRouter = (productManager) => {
     try {
       const { limit = 10, page = 1, sort, query, category, status } = req.query;
       
-      // Get unique categories
       const categories = await Product.distinct('category');
       
-      // Construir el filtro combinando query JSON y params amigables
+      // Filtro 
       let filter = {};
       if (query) {
         try {
@@ -27,7 +26,7 @@ const viewsRouter = (productManager) => {
         else if (status === 'false' || status === false) filter.status = false;
       }
 
-      // Get products with pagination and filters
+      //Obtener productos con paginacion 
       const result = await productManager.getProducts({
         limit: parseInt(limit),
         page: parseInt(page),
@@ -35,7 +34,7 @@ const viewsRouter = (productManager) => {
         query: Object.keys(filter).length ? filter : null
       });
 
-      // Add pagination data for the view
+      // Agregar paginacion
       const pagination = {
         hasPrevPage: result.hasPrevPage,
         hasNextPage: result.hasNextPage,

@@ -68,7 +68,7 @@ socket.on('updateProducts', products => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const CART_ID = '681cf9f2f5063cb016b98c98'; // Usa el ID de tu carrito de ejemplo
+  const CART_ID = '681cf9f2f5063cb016b98c98'; 
 
   const buttons = document.querySelectorAll('.add-to-cart-btn');
   console.log('Buscando botones para agregar al carrito...', buttons);

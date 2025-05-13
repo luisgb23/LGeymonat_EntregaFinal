@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
   try {
     const { limit, page, sort, query, category, status } = req.query;
     
-    // Construir el filtro combinando query JSON y params amigables
+    // Filtro
     let filter = {};
     if (query) {
       try {
