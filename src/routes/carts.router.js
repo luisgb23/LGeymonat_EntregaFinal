@@ -64,7 +64,8 @@ router.delete('/:cid/products/:pid', async (req, res) => {
     if (!cart) return res.status(404).json({ status: 'error', message: 'Carrito no encontrado' });
     cart.products = cart.products.filter(p => !p.product.equals(pid));
     await cart.save();
-    res.json(cart);
+    const updatedCart = await Cart.findById(cid).populate('products.product');
+    res.json(updatedCart);
   } catch (error) {
     res.status(500).json({ status: 'error', message: error.message });
   }
@@ -130,7 +131,8 @@ router.delete('/:cid', async (req, res) => {
     if (!cart) return res.status(404).json({ status: 'error', message: 'Carrito no encontrado' });
     cart.products = [];
     await cart.save();
-    res.json(cart);
+    const updatedCart = await Cart.findById(cid).populate('products.product');
+    res.json(updatedCart);
   } catch (error) {
     res.status(500).json({ status: 'error', message: error.message });
   }

@@ -82,13 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
           method: 'POST'
         });
         if (res.ok) {
-          alert('Producto agregado al carrito');
+          Swal.fire('¡Éxito!', 'Producto agregado al carrito', 'success');
         } else {
           const data = await res.json();
-          alert('Error: ' + data.message);
+          Swal.fire('Error', data.message, 'error');
         }
       } catch (err) {
-        alert('Error al agregar al carrito');
+        Swal.fire('Error', 'Error al agregar al carrito', 'error');
       }
     });
   });

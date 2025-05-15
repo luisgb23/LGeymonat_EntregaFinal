@@ -57,18 +57,14 @@ const products = [
 
 const seedDatabase = async () => {
   try {
-    // Connect to MongoDB
     await connectDB();
 
-    // Clear existing products
     await Product.deleteMany({});
     console.log('Base de datos limpiada');
 
-    // Insert new products
     await Product.insertMany(products);
     console.log('Productos agregados exitosamente');
 
-    // Disconnect from MongoDB
     await mongoose.disconnect();
     console.log('Desconectado de MongoDB');
   } catch (error) {
@@ -77,5 +73,4 @@ const seedDatabase = async () => {
   }
 };
 
-// Run the seeder
 seedDatabase(); 
